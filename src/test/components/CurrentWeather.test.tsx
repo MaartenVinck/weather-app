@@ -44,11 +44,10 @@ describe("CurrentWeather", () => {
     expect(screen.getByText("Selected Day View")).toBeInTheDocument()
   })
 
-  it("renders weather icon when available", () => {
+  it("renders weather emoji icon when available", () => {
     render(<CurrentWeather weather={mockWeatherData} />)
 
-    const weatherIcon = screen.getByAltText("Sunny")
-    expect(weatherIcon).toBeInTheDocument()
-    expect(weatherIcon).toHaveAttribute("src", "https://example.com/icon.png")
+    // The weather icon is now an emoji (☀️) in a div, not an img with alt text
+    expect(screen.getByText("☀️")).toBeInTheDocument()
   })
 })
